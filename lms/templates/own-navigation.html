@@ -1,0 +1,176 @@
+## mako
+<%namespace name='static' file='static_content.html'/>
+<%namespace file='main.html' import="login_query, stanford_theme_enabled"/>
+<%!
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
+
+from microsite_configuration import microsite
+from microsite_configuration.templatetags.microsite import platform_name
+from lms.djangoapps.ccx.overrides import get_current_ccx
+
+# App that handles subdomain specific branding
+import branding
+# app that handles site status messages
+from status.status import get_site_status_msg
+%>
+
+## Provide a hook for themes to inject branding on top.
+<%block name="navigation_top" />
+
+<%block>
+<%
+try:
+    course_id = course.id
+except:
+    # can't figure out a better way to get at a possibly-defined course var
+    course_id = None
+site_status_msg = get_site_status_msg(course_id)
+%>
+% if site_status_msg:
+<div class="site-status">
+  <div class="inner-wrapper">
+    <span class="white-error-icon"></span>
+    <p>${site_status_msg}</p>
+  </div>
+</div>
+% endif
+</%block>
+
+  <header id="header">
+    <nav class="navbar navbar-default navbar-fixed-top" aria-label="${_('Global')}">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="${marketing_link('ROOT')}">
+        <%block name="navigation_logo">
+            <img src="${static.url(branding.get_logo_url())}" alt="${_("{platform_name} Home Page").format(platform_name=platform_name())}"/>
+        </%block>
+      </a>
+    </div>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+    % if course:
+    <ul class="nav navbar-nav first">
+    <li>
+      <span class="provider">${course.display_org_with_default | h}:</span>
+      <span class="course-number">${course.display_number_with_default | h}</span>
+      <%
+        display_name = course.display_name_with_default
+        if settings.FEATURES.get('CUSTOM_COURSES_EDX', False):
+          ccx = get_current_ccx(course.id)
+          if ccx:
+            display_name = ccx.display_name
+	 %>
+      <span class="course-name">${display_name}</span>
+    </li>
+    </ul>
+    % endif
+
+    % if user.is_authenticated():
+    <ul class="nav navbar-nav first">
+      <%block name="navigation_global_links_authenticated">
+        % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+          <li class="nav-global-01">
+            <a href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
+          </li>
+        % endif
+        %if settings.FEATURES.get('ENABLE_SYSADMIN_DASHBOARD','') and user.is_staff:
+          <li>
+            ## Translators: This is short for "System administration".
+            <a href="${reverse('sysadmin')}">${_("Sysadmin")}</a>
+          </li>
+        %endif
+      </%block>
+    </ul>
+    <ul class="nav navbar-nav navbar-right user">
+      <li class="primary">
+	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> ${user.username} <span class="sr">${_("More options dropdown")}</span><span class="fa fa-sort-desc" aria-hidden="true"></span></button>
+	<ul class="dropdown-menu">
+	  <li><a class="dropdown-link" href="${reverse('dashboard')}">${_("Dashboard")}</a></li>
+          <li><a class="dropdown-link" href="${reverse('learner_profile', kwargs={'username': user.username})}">${_("Profile")}</a></li>
+          <li><a class="dropdown-link" href="${reverse('account_settings')}">${_("Account")}</a></li>
+	% if user.is_staff:
+          <li><a class="dropdown-link" href="http://campus.moocmaker.org:8080/">Ir a OpenEdx Studio</a></li>
+	% endif
+          <li><a class="dropdown-link" href="${reverse('logout')}" role="menuitem">${_("Sign Out")}</a></li>
+        </ul>
+	</li>	
+    </ul>
+      % if should_display_shopping_cart_func() and not (course and microsite.is_request_in_microsite()): # see shoppingcart.context_processor.user_has_cart_context_processor
+        <ol class="user">
+          <li class="primary">
+            <a class="shopping-cart" href="${reverse('shoppingcart.views.show_cart')}">
+              <i class="icon fa fa-shopping-cart"></i> ${_("Shopping Cart")}
+            </a>
+          </li>
+        </ol>
+      % endif
+    % else:
+	<div class="right-container">
+    <ul class="nav navbar-nav course-register-button">
+      <%block name="navigation_global_links">
+        % if microsite.get_value('ENABLE_MKTG_SITE', settings.FEATURES.get('ENABLE_MKTG_SITE', False)):
+          <li class="nav-global-01">
+            <a href="${marketing_link('HOW_IT_WORKS')}">${_("How it Works")}</a>
+          </li>
+          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+            <li class="nav-global-02">
+              <a href="${marketing_link('COURSES')}">${_("Courses")}</a>
+            </li>
+          % endif
+          <li class="nav-global-03">
+            <a href="${marketing_link('SCHOOLS')}">${_("Schools")}</a>
+          </li>
+        % endif
+      </%block>
+      % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+          % if settings.FEATURES.get('ENABLE_COURSE_DISCOVERY'):
+          <li class="nav-global-05">
+            <a class="cta cta-discovery" href="/courses">${_("Find Courses")}</a>
+          </li>
+          %endif
+          % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+          <li class="nav-global-04">
+            <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Register")}</a>
+          </li>
+          % else:
+          <li class="nav-global-04">
+            <a class="cta cta-register" href="/register${login_query()}">${_("Register")}</a>
+          </li>
+          % endif
+
+      % endif
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+    <li class="nav-courseware-01">
+      % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+          % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+          <button class="btn cta cta-login" onclick="window.location.href='${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}'">${_("Sign in")}</button>
+          % else:
+          <button class="btn cta cta-login" onclick="window.location.href='/login${login_query()}'">${_("Sign in")}</button>
+          % endif
+
+      % endif
+    </li>
+    <li><a href="https://twitter.com/moocmaker" class="icon" target="_blank" title="Ir a Twitter"><img src="${static.url('images/twitter.png')}" alt="Ir a Twitter"></a></li>
+    <li><a class="icon" href="https://www.facebook.com/moocmaker/" target="_blank" title="Ir a Facebook"><img src="${static.url('images/facebook.png')}" alt="Ir a Facebook"></a></li>
+    </ul>
+	</div>
+    % endif
+    </div>
+    </div>
+  </nav>
+</header>
+% if course:
+<!--[if lte IE 9]>
+<div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.').format(chrome_link='<a href="https://www.google.com/chrome" target="_blank">Chrome</a>', ff_link='<a href="http://www.mozilla.org/firefox" target="_blank">Firefox</a>')}</div>
+<![endif]-->
+% endif
+
+<%include file="help_modal.html"/>

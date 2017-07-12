@@ -1,0 +1,50 @@
+.carousel-inner > .item {
+    max-height: 410px !important;
+}
+
+.carousel-caption {
+	background: $blue-transparent;
+	top: 30%;
+	right: 30%;
+	bottom: 30%;
+	left: 30%;
+	padding-top: 1vw;
+
+	h1 {
+		font: inherit;
+		margin: 0;
+		font-size: 5.5vw;
+		font-weight: 600;
+		font-family: 'Raleway';
+		color: $white-main;
+		letter-spacing: 0;
+		line-height: 1;
+		margin-bottom: 0.5vw;
+	}
+
+	p {
+		font-size: 2vw;
+		line-height: 1;
+	}
+}
+
+.carousel-control {
+	width: 10%;
+	.glyphicon-chevron-right {
+		right: 25%;
+	}
+	.glyphicon-chevron-left {
+		left: 25%;
+	}
+}
+
+.carousel-indicators {
+	bottom: 0.5vw !important;
+	li {
+		@include carousel-indicators(#FFFFFF);
+	}
+
+	.active {
+		@include carousel-indicators($yellow-main);
+	}
+}

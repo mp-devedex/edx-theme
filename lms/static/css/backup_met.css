@@ -1,0 +1,64 @@
+/*
+Syntax error: Undefined variable: "$sans-serif".
+        on line 72 of /edx/app/edxapp/edx-platform/themes/moocmaker_edx-theme/lms/static/sass/backup_met.scss
+
+67: //-----------------
+68: //  Font Assignment
+69: //-----------------
+70: 
+71: $theme-sans-font: 'Source Sans';
+72: $sans-serif: $theme-sans-font, $sans-serif;
+73: $body-font-family: $sans-serif;
+74: 
+75: $theme-serif-font: 'Crimson Text';
+76: $serif: $theme-serif-font, $serif;
+77: 
+
+Backtrace:
+/edx/app/edxapp/edx-platform/themes/moocmaker_edx-theme/lms/static/sass/backup_met.scss:72
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/script/tree/variable.rb:49:in `_perform'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/script/tree/node.rb:50:in `perform'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/script/tree/list_literal.rb:62:in `block in _perform'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/script/tree/list_literal.rb:62:in `map'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/script/tree/list_literal.rb:62:in `_perform'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/script/tree/node.rb:50:in `perform'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:438:in `visit_variable'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/stack.rb:79:in `block in with_base'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/stack.rb:121:in `with_frame'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/stack.rb:79:in `with_base'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `map'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/root_node.rb:36:in `css_tree'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/tree/root_node.rb:20:in `render'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/engine.rb:275:in `block in render'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/util.rb:442:in `silence_sass_warnings'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/engine.rb:275:in `render'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:414:in `update_stylesheet'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:189:in `block in update_stylesheets'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:186:in `each'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/plugin/compiler.rb:186:in `update_stylesheets'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/plugin.rb:82:in `update_stylesheets'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/exec.rb:489:in `watch_or_update'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/exec.rb:346:in `process_result'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/exec.rb:43:in `parse'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/lib/sass/exec.rb:22:in `parse!'
+/edx/app/edxapp/.gem/gems/sass-3.3.5/bin/sass:13:in `<top (required)>'
+/edx/app/edxapp/edx-platform/bin/sass:16:in `load'
+/edx/app/edxapp/edx-platform/bin/sass:16:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$sans-serif\".\A         on line 72 of /edx/app/edxapp/edx-platform/themes/moocmaker_edx-theme/lms/static/sass/backup_met.scss\A \A 67: //-----------------\A 68: //  Font Assignment\A 69: //-----------------\A 70: \A 71: $theme-sans-font: 'Source Sans';\A 72: $sans-serif: $theme-sans-font, $sans-serif;\A 73: $body-font-family: $sans-serif;\A 74: \A 75: $theme-serif-font: 'Crimson Text';\A 76: $serif: $theme-serif-font, $serif;\A 77: "; }

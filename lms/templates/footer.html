@@ -1,0 +1,42 @@
+## mako
+<%!
+  from django.core.urlresolvers import reverse
+  from django.utils.translation import ugettext as _
+%>
+<%namespace name='static' file='/static_content.html'/>
+<%!
+  from datetime import date
+%>
+
+<div class="wrapper-footer">
+  <footer>
+    <section id="features">
+      <div class="feature col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <img src="${static.url('images/icon-01.png')}" alt="Alta Calidad">
+        <h4>Alta Calidad</h4>
+        <p>Contenidos innovadores, y de calidad con diferentes temas para promover el desarrollo profesional.</p>
+      </div>
+      <div class="feature col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <img src="${static.url('images/icon-02.png')}" alt="Totalmente en Linea">
+        <h4>Totalmente en Línea</h4>
+        <p>Solo necesitas un dispositivo y conexión a Internet para poder registrarte en los cursos.</p>
+      </div>
+      <div class="feature col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <img src="${static.url('images/icon-03.png')}" alt="Abierto y Gratuito">
+        <h4>Abierto y Gratuito</h4>
+        <p>Se pueden registrar todas las personas que lo deseen, sin tener que pagar registro de inscripción a los cursos.</p>
+      </div>
+      <div class="feature col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <img src="${static.url('images/icon-04.png')}" alt="Desarrolla tus Competencias">
+        <h4>Desarrolla tus Competencias</h4>
+        <p>Podrás fortalecer o desarrollar nuevas competencias brindándote la oportunidad de actualizar tu perfil profesional.</p>
+      </div>
+    </section>
+    <div id="partners">
+      <img src="${static.url('images/logos-socios.png')}" alt="Socios">
+    </div>
+    <div id="footer">
+      <img src="${static.url('images/footer-pagina.png')}" alt="">
+    </div>
+  </footer>
+</div>
