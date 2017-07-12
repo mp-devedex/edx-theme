@@ -1,0 +1,56 @@
+// -- FEATURES -- //
+#features {
+	@extend %clear-section;
+	padding: 1% 5%;
+
+	.feature {
+		text-align: center !important;
+		margin-bottom: 20px;
+
+		img {
+			margin-bottom: 20px;
+		}
+
+		h4 {
+			font: inherit;
+			font-size: 15px;
+			font-family: $font-family-default;
+			text-transform: uppercase;
+			font-weight: 600;
+			text-align: center;
+			word-spacing: 1px;
+			line-height: 2;
+			
+		}
+
+		p {
+			font-family: $font-family-default;
+			font-size: 17px;
+			text-align: center !important;
+			word-spacing: 3px;
+			letter-spacing: 0.5px;
+			line-height: 1;
+		}
+	}
+}
+
+// -- PARTNERS -- //
+#partners {
+	padding: 1% 10%;
+	img {
+		max-width: 100%;
+	}
+}
+
+// -- FOOTER -- //
+#footer {
+	img {
+		max-width: 100%;
+	}
+}
+
+// -- OVERRIDES -- //
+body.view-in-course .wrapper-footer {
+	padding-left: 0;
+	padding-right: 0;
+}

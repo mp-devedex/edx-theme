@@ -1,0 +1,12 @@
+/*-- COLOR VARIABLES
+-----------------------*/
+$white-main: #FFFFFF;
+$yellow-main: #FAD030;
+$blue-main: #32394B;
+$orange-main: #E96144;
+$yellow-transparent: transparentize($yellow-main, .3); // For Course Content Text Background
+$blue-transparent: transparentize($blue-main, .1); // For Carousel Caption
+
+/*-- FONT VARIABLES 
+-----------------------*/
+$font-family-default: 'Raleway';

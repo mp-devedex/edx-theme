@@ -1,0 +1,100 @@
+#courses {
+	@extend %clear-section;
+	padding: 1% 10%;
+
+	.course {
+		text-align: left;
+		margin-bottom: 20px;
+		font-family: $font-family-default;
+		
+		.header {
+			height: 40px;
+			background: $blue-main;
+			padding: 5px;
+			display: flex;
+			align-items: center;
+
+			h4 {
+				font-size: 15px;
+				margin: 0;
+				color: $white-main;
+				font-family: $font-family-default;
+				line-height: 1;
+				align-self: center;
+			}
+		}
+
+		.header-new {
+			width: 85%;
+			float: left;
+		}
+
+		.new {
+			width: 15%;
+			display: inline-block;
+			background-color: $orange-main;
+			height: 40px;
+			text-align: center;
+			p {
+				color: $white-main;
+				line-height: 40px;
+				margin-bottom: 0;
+				font-weight: bold;
+				font-size: 12px;
+			}
+		}
+
+		.content {
+			height: 150px;
+			background-size: cover;
+			background-position: center;
+
+			.text-container {
+				transition: 0.2s;
+				transform-style: preserve-3d;
+				transform: rotateY(0deg);
+				height: 100%;
+				
+				.pre-text {
+					backface-visibility: hidden;
+					transform: rotateY(180deg);
+					background: $yellow-transparent;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					margin-bottom: 0;
+					width: 100%;
+
+					p {
+						padding: 30px 20px;
+						font-size: 17px;
+					   	line-height: 20px;
+						font-weight: 500;
+					}
+
+					.mas {
+						position: absolute;
+						bottom: 5%;
+						right: 5%;
+						text-transform: uppercase;
+						color: $blue-main;
+						font-weight: bold;
+						text-decoration: none;
+
+						i {
+							font-size: 18px;
+							color: $orange-main;
+						}
+					}
+				}
+
+				&:hover {
+					transform: rotateY(180deg);
+				}
+			}
+
+		}
+
+	}
+
+}

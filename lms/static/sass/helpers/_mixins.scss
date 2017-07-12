@@ -1,0 +1,7 @@
+@mixin carousel-indicators($bg-color: $white-main) {
+	width: 15px;
+	height: 15px;
+	border: 1px solid $yellow-main;
+	background: $bg-color;
+	margin: 0;
+}

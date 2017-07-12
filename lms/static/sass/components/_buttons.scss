@@ -1,0 +1,54 @@
+.btn-login {
+	background: $yellow-main;
+	color: $blue-main;
+	border-radius: 0;
+        box-shadow: none;
+        text-shadow: none;
+        font-weight: 600;
+	border: none;
+}
+
+//-----------------
+// BUTTONS OVERRIDES
+//-----------------
+
+.verification-process .report-receipt-provider .provider-buttons-logos .complete-order button:hover, .dashboard .my-courses .course .details .enter-course:hover, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .verification-cta .cta:hover, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .credit-action .credit-btn:hover, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .xseries-action .xseries-border-btn:hover, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .xseries-action .xseries-base-btn:hover, .btn-secondary:hover, .dashboard .wrapper-find-courses .btn-find-courses:hover, .verification-process .report-receipt-provider .provider-buttons-logos .complete-order button:focus, .dashboard .my-courses .course .details .enter-course:focus, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .verification-cta .cta:focus, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .credit-action .credit-btn:focus, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .xseries-action .xseries-border-btn:focus, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .xseries-action .xseries-base-btn:focus, .btn-secondary:focus, .dashboard .wrapper-find-courses .btn-find-courses:focus .enter-course.archived:hover
+{
+    background-color: $blue-main;
+    color: $white-main !important;
+}
+
+.verification-process .report-receipt-provider .provider-buttons-logos .complete-order button, .dashboard .my-courses .course .details .enter-course, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .verification-cta .cta, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .credit-action .credit-btn, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .xseries-action .xseries-border-btn, .dashboard .my-courses .course .wrapper-messages-primary .message.message-status .xseries-action .xseries-base-btn, .btn-secondary, .dashboard .wrapper-find-courses .btn-find-courses, .dashboard .my-courses .course .details .enter-course.archived
+{
+    color: $blue-main;
+}
+
+// LOGIN BUTTON
+.btn-blue, .dashboard-banner .wrapper-msg .msg.has-actions .donate-actions .action-donate, .login-register .action-primary, .financial-assistance-wrapper .financial-assistance-form .action-primary, .verification-process .action-primary-blue, .verification-process .carousel .wrapper-task .controls .control .action, .verification-process .carousel .wrapper-task .msg .list-actions .action-retakephotos a, .verification-process .carousel #wrapper-review .review-task-name .list-actions .action-editname a, .verification-process.step-select-track .register-choice-audit .action-select input, .verification-process.step-confirmation .course-info .options .action-course, .verification-process.step-confirmation .course-info .course-actions .action-dashboard, .reverify-blocked .action-primary, .wrapper-msg.wrapper-auto-cert .auto-cert-message .has-actions .msg-actions .btn 
+{
+    background-color: $blue-main;
+    box-shadow: 0 2px 1px 0 saturate($blue-main, 20%);
+}
+
+.btn-blue:hover, .dashboard-banner .wrapper-msg .msg.has-actions .donate-actions .action-donate:hover, .login-register .action-primary:hover, .financial-assistance-wrapper .financial-assistance-form .action-primary:hover, .verification-process .action-primary-blue:hover, .verification-process .carousel .wrapper-task .controls .control .action:hover, .verification-process .carousel .wrapper-task .msg .list-actions .action-retakephotos a:hover, .verification-process .carousel #wrapper-review .review-task-name .list-actions .action-editname a:hover, .verification-process.step-select-track .register-choice-audit .action-select input:hover, .verification-process.step-confirmation .course-info .options .action-course:hover, .verification-process.step-confirmation .course-info .course-actions .action-dashboard:hover, .reverify-blocked .action-primary:hover, .wrapper-msg.wrapper-auto-cert .auto-cert-message .has-actions .msg-actions .btn:hover, .btn-blue:active, .dashboard-banner .wrapper-msg .msg.has-actions .donate-actions .action-donate:active, .login-register .action-primary:active, .financial-assistance-wrapper .financial-assistance-form .action-primary:active, .verification-process .action-primary-blue:active, .verification-process .carousel .wrapper-task .controls .control .action:active, .verification-process .carousel .wrapper-task .msg .list-actions .action-retakephotos a:active, .verification-process .carousel #wrapper-review .review-task-name .list-actions .action-editname a:active, .verification-process.step-select-track .register-choice-audit .action-select input:active, .verification-process.step-confirmation .course-info .options .action-course:active, .verification-process.step-confirmation .course-info .course-actions .action-dashboard:active, .reverify-blocked .action-primary:active, .wrapper-msg.wrapper-auto-cert .auto-cert-message .has-actions .msg-actions .btn:active, .btn-blue:focus, .dashboard-banner .wrapper-msg .msg.has-actions .donate-actions .action-donate:focus, .login-register .action-primary:focus, .financial-assistance-wrapper .financial-assistance-form .action-primary:focus, .verification-process .action-primary-blue:focus, .verification-process .carousel .wrapper-task .controls .control .action:focus, .verification-process .carousel .wrapper-task .msg .list-actions .action-retakephotos a:focus, .verification-process .carousel #wrapper-review .review-task-name .list-actions .action-editname a:focus, .verification-process.step-select-track .register-choice-audit .action-select input:focus, .verification-process.step-confirmation .course-info .options .action-course:focus, .verification-process.step-confirmation .course-info .course-actions .action-dashboard:focus, .reverify-blocked .action-primary:focus, .wrapper-msg.wrapper-auto-cert .auto-cert-message .has-actions .msg-actions .btn:focus 
+{
+    background-color: saturate($blue-main, 20%);
+}
+
+// REGISTER BUTTON 
+.login-register .nav-btn, .financial-assistance-wrapper .financial-assistance-form .nav-btn, .login-register .button-secondary-login, .financial-assistance-wrapper .financial-assistance-form .button-secondary-login 
+{
+    color: $blue-main;
+    border: 1px solid saturate($blue-main, 10%)
+}
+
+.login aside .cta-login .cta-login-action:hover, .register aside .cta-login .cta-login-action:hover, .passwordreset aside .cta-login .cta-login-action:hover, #forgot-password-modal #password-reset aside .cta-login .cta-login-action:hover, .login-register .login-provider:hover, .financial-assistance-wrapper .financial-assistance-form .login-provider:hover, .login .form-actions.form-third-party-auth button[type="submit"]:hover, .register .form-actions.form-third-party-auth button[type="submit"]:hover, .passwordreset .form-actions.form-third-party-auth button[type="submit"]:hover, #forgot-password-modal #password-reset .form-actions.form-third-party-auth button[type="submit"]:hover, .login-register .nav-btn:hover, .financial-assistance-wrapper .financial-assistance-form .nav-btn:hover, .login-register .button-secondary-login:hover, .financial-assistance-wrapper .financial-assistance-form .button-secondary-login:hover, .login aside .cta-login .cta-login-action:active, .register aside .cta-login .cta-login-action:active, .passwordreset aside .cta-login .cta-login-action:active, #forgot-password-modal #password-reset aside .cta-login .cta-login-action:active, .login-register .login-provider:active, .financial-assistance-wrapper .financial-assistance-form .login-provider:active, .login .form-actions.form-third-party-auth button[type="submit"]:active, .register .form-actions.form-third-party-auth button[type="submit"]:active, .passwordreset .form-actions.form-third-party-auth button[type="submit"]:active, #forgot-password-modal #password-reset .form-actions.form-third-party-auth button[type="submit"]:active, .login-register .nav-btn:active, .financial-assistance-wrapper .financial-assistance-form .nav-btn:active, .login-register .button-secondary-login:active, .financial-assistance-wrapper .financial-assistance-form .button-secondary-login:active, .login aside .cta-login .cta-login-action:focus, .register aside .cta-login .cta-login-action:focus, .passwordreset aside .cta-login .cta-login-action:focus, #forgot-password-modal #password-reset aside .cta-login .cta-login-action:focus, .login-register .login-provider:focus, .financial-assistance-wrapper .financial-assistance-form .login-provider:focus, .login .form-actions.form-third-party-auth button[type="submit"]:focus, .register .form-actions.form-third-party-auth button[type="submit"]:focus, .passwordreset .form-actions.form-third-party-auth button[type="submit"]:focus, #forgot-password-modal #password-reset .form-actions.form-third-party-auth button[type="submit"]:focus, .login-register .nav-btn:focus, .financial-assistance-wrapper .financial-assistance-form .nav-btn:focus, .login-register .button-secondary-login:focus, .financial-assistance-wrapper .financial-assistance-form .button-secondary-login:focus 
+{
+    background: saturate($blue-main, 10%);
+    box-shadow: 0 2px 1px 0 saturate($blue-main, 20%);
+}
+
+// LINKS OVERRIDES 
+.dashboard .my-courses .course .details .course-title a, .dashboard .my-courses .course .details .course-title span {
+    color: $blue-main;
+}

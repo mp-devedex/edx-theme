@@ -1,0 +1,24 @@
+<%namespace name='static' file='static_content.html'/>
+<%!
+from django.utils.translation import ugettext as _
+from django.core.urlresolvers import reverse
+%>
+<%page args="course" />
+<div class="col-lg-4 col-md-4 col-sm-6">
+  <div class="course" id="${course.id | h}" role="region" aria-label="${course.display_name_with_default}">
+    <div class="header header-new">
+      <h4 title="${course.display_name_with_default}">${course.display_name_with_default}</h4>
+    </div>
+    <span class="new"><p>NEW</p></span>
+
+    <div class="content" style="background-image: url('${course.course_image_url | h}');">
+      <div class="text-container">
+        <div class="pre-text">
+          <p class="text">${course.display_name_with_default}</p>
+          <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}" class="mas">Ver Más <i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
