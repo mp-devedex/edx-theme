@@ -49,15 +49,47 @@
 			background-size: cover;
 			background-position: center;
 
+			@-webkit-keyframes anim_one {
+				0% { -webkit-transform: rotateY(0deg); }
+			    5% { -webkit-transform: rotateY(0deg); }
+			    10% { -webkit-transform: rotateY(0deg); }
+			    100% { -webkit-transform: rotateY(0deg); }
+			}
+
+
+			@-webkit-keyframes anim_two {
+				0% { -webkit-transform: rotateY(180deg); }
+			    5% { -webkit-transform: rotateY(180deg); }
+			    10% { -webkit-transform: rotateY(180deg); }
+			    100% { -webkit-transform: rotateY(180deg); }
+			}
+
 			.text-container {
+				-webkit-transition: 0.2s;
+				-webkit-transform-style: preserve-3d;
+				-webkit-transform: rotateY(0deg);
+				-moz-transition: 0.2s;
+				-moz-transform-style: preserve-3d;
+				-moz-transform: rotateY(0deg);
+				-ms-transition: 0.2s;
+				-ms-transform-style: preserve-3d;
+				-ms-transform: rotateY(0deg);
+				-o-transition: 0.2s;
+				-o-transform-style: preserve-3d;
+				-o-transform: rotateY(0deg);
 				transition: 0.2s;
 				transform-style: preserve-3d;
 				transform: rotateY(0deg);
 				height: 100%;
 				
 				.pre-text {
+					-webkit-backface-visibility: hidden;
 					backface-visibility: hidden;
 					transform: rotateY(180deg);
+					-webkit-transform: rotateY(180deg);
+					-moz-transform: rotateY(180deg);
+					-ms-transform: rotateY(180deg);
+					-o-transform: rotateY(180deg);
 					background: $yellow-transparent;
 					position: absolute;
 					top: 0;
@@ -89,6 +121,10 @@
 				}
 
 				&:hover {
+					-webkit-transform: rotateY(180deg);
+					-moz-transform: rotateY(180deg);
+					-ms-transform: rotateY(180deg);
+					-o-transform: rotateY(180deg);
 					transform: rotateY(180deg);
 				}
 			}
