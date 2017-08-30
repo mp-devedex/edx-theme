@@ -105,7 +105,7 @@
 }
 
 .navbar-nav>li>span {
-	line-height: 50px;
+	line-height: 25px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	color: $blue-main;
@@ -165,6 +165,9 @@
 			a {
 				padding: 0 !important;
 				line-height: 50px;
+				&:not(.icon):not(.dropdown-link):hover, &:not(.icon):not(.dropdown-link):focus, &:not(.icon):not(.dropdown-link):active {
+					background-image: none;
+				}
 			}
 			button {
 				margin: 10px 0px;
