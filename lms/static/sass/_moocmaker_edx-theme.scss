@@ -321,6 +321,26 @@ section.tos {
     padding-bottom: 20px;
 }
 
+.valid-field {
+    border-color: $valid !important;
+}
+
+.valid-label {
+    i {
+        float: right;
+    }
+    color: $valid !important;
+}
+
+label.error {
+    i {
+        float: right;
+    }
+    li {
+        list-style: none;
+    }
+}
+
 //-----------------
 // COURSE CONTENT OVERRIDES
 //-----------------
