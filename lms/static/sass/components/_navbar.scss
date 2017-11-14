@@ -160,18 +160,44 @@
 		padding: 0 !important;
 	}
 
-	.navbar-nav {
-		li {
-			a {
-				padding: 0 !important;
-				line-height: 50px;
-				&:not(.icon):not(.dropdown-link):hover, &:not(.icon):not(.dropdown-link):focus, &:not(.icon):not(.dropdown-link):active {
-					background-image: none;
+	.container-fluid {
+		.navbar-header {
+			padding: 10px 0;
+		}	
+	}
+	
+	.right-container {
+		height: auto;
+		display: block;
+		justify-content: none;
+
+		ul {
+			float: none;
+		}
+		
+		.navbar-right {
+			margin-left: 15px;
+
+			li:not(.nav-courseware-01) {
+				float: left;
+				padding: 10px 5px 10px 0;
+			}
+
+		}
+		
+		.navbar-nav {
+			li {
+				a {
+					padding: 0 !important;
+					line-height: 50px;
+					&:not(.icon):not(.dropdown-link):hover, &:not(.icon):not(.dropdown-link):focus, &:not(.icon):not(.dropdown-link):active {
+						background-image: none;
+					}
+				}
+				button {
+					margin: 10px 0px;
 				}
 			}
-			button {
-				margin: 10px 0px;
-			}
 		}
-	}
+	}	
 }
