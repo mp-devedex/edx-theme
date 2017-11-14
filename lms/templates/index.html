@@ -96,19 +96,21 @@ from microsite_configuration import microsite
 	  </div>
 	</div>
 
-	<% cont = 1 %>
-	%for course in courses[:6]:
-	  <% cont += 1 %>
-          <%include file="course-template.html" args="course=course, cont=cont"/>
-	  <p></p>
+		<% cont = 1 %>
+		%for course in courses:
+			<% cont += 1 %>
+			% if cont < 10:
+	        	<%include file="course-template.html" args="course=course, cont=cont"/>
+				<p></p>
+          	% endif
         %endfor
 
         ## in case there are courses that are not shown on the homepage, a 'View all Courses' link should appear
-        % if settings.HOMEPAGE_COURSE_MAX and len(courses) > settings.HOMEPAGE_COURSE_MAX:
-          <div class="courses-more">
-            <a class="courses-more-cta" href="${marketing_link('COURSES')}" > ${_("View all Courses")} </a>
-          </div>
-        % endif
+        <!-- {# % if settings.HOMEPAGE_COURSE_MAX and len(courses) > settings.HOMEPAGE_COURSE_MAX: #}
+        <div class="courses-more">
+           <a class="courses-more-cta" href="${marketing_link('COURSES')}" > ${_("View all Courses")} </a>
+        </div> 
+        {# % endif #} -->
 
       % endif
 

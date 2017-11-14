@@ -142,6 +142,10 @@ site_status_msg = get_site_status_msg(course_id)
           <li class="nav-global-04">
             <a class="cta cta-register" href="/register${login_query()}">${_("Register")}</a>
           </li>
+	  <li class="nav-global-04">
+            <a class="view_courses" href="${marketing_link('COURSES')}"> ${_("View all Courses")} </a>
+          </li>
+
           % endif
 
       % endif
