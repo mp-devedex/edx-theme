@@ -3,7 +3,7 @@
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 %>
-<%page args="course, cont" />
+<%page args="course, cont, external_courses" />
 <div class="col-lg-4 col-md-4 col-sm-6">
   <div class="course" id="${course.id | h}" role="region" aria-label="${course.display_name_with_default}">
     %if cont < 4:
@@ -17,19 +17,15 @@ from django.core.urlresolvers import reverse
         </div>
     %endif
 
-    <div class="content" id="content-course-${course.id}" style="background-image: url('${course.course_image_url | h}');">
-      <div class="text-container">
-        <div class="pre-text">
-          <p class="description">${course.short_description}</p>
-          %if course.id.to_deprecated_string() == 'course-v1:MOOC-Maker+PUC01+2017_02':
-              <a href="https://www.coursera.org/learn/gestion-organizaciones-efectivas" class="mas" title="Ver más sobre ${course.short_description}" target="_blank">Ver Más <i class="fa fa-plus" aria-hidden="true"></i></a>
-	        %elif course.id.to_deprecated_string() == 'course-v1:MOOC-Maker+UG02+2017_02':
-            <a href="https://www.edx.org/course/diseno-de-estrategias-exitosas-y-galileox-cneg001rx-0" class="mas" title="Ver más sobre ${course.short_description}" target="_blank">Ver Más <i class="fa fa-plus" aria-hidden="true"></i></a>
-          %elif course.id.to_deprecated_string() == 'course-v1:MOOC-Maker+UCH01+2017_2':
-            <a href="https://www.coursera.org/learn/mi-primer-empleo" class="mas" title="Ver más sobre ${course.short_description}" target="_blank">Ver Más <i class="fa fa-plus" aria-hidden="true"></i></a>
-          %else:
-              <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}" class="mas" title="Ver más sobre ${course.short_description}">Ver Más <i class="fa fa-plus" aria-hidden="true"></i></a>
-          %endif
+		<div class="content" id="content-course-${course.id}" style="background-image: url('${course.course_image_url | h}');">
+      	<div class="text-container">
+        		<div class="pre-text">
+          		<p class="description">${course.short_description}</p>
+          		%if course.id.to_deprecated_string() in external_courses:
+    					<a href="${external_courses[course.id.to_deprecated_string()]}" class="mas" title="Ver más sobre ${course.short_description}" target="_blank">Ver Más <i class="fa fa-plus" aria-hidden="true"></i></a>
+					%else:
+              		<a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}" class="mas" title="Ver más sobre ${course.short_description}">Ver Más <i class="fa fa-plus" aria-hidden="true"></i></a>
+          		%endif
         </div>
       </div>
     </div>

@@ -100,7 +100,7 @@ from microsite_configuration import microsite
 		%for course in courses:
 			<% cont += 1 %>
 			% if cont < 10:
-	        	<%include file="course-template.html" args="course=course, cont=cont"/>
+	        	<%include file="course-template.html" args="course=course, cont=cont, external_courses=external_courses"/>
 				<p></p>
           	% endif
         %endfor
