@@ -52,3 +52,51 @@
 .dashboard .my-courses .course .details .course-title a, .dashboard .my-courses .course .details .course-title span {
     color: $blue-main;
 }
+
+// - BUTTON OVERLINED ON HOVER
+.overlined-button {
+    letter-spacing: 0;
+
+    &:hover, &:active {
+        letter-spacing: 1px;      
+    }
+
+    &:hover {
+        &:after, &:before {
+            backface-visibility: hidden;
+            border-color: #fff;
+            transition: width 350ms ease-in-out;
+            width: 70%;
+        }
+
+        &:before {
+            bottom: auto;
+            top: 0;
+            width: 70%;
+        }
+    }
+
+    &:after, &:before {
+        backface-visibility: hidden;
+        border: 1px solid rgba(#fff, 0);
+        bottom: 0px;
+        content: " ";
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        transition: all 280ms ease-in-out;
+        width: 0;
+    }
+}
+
+.clear-button {
+    background: none !important;
+    text-shadow: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    
+    &:hover, &:focus &:active {
+        background: none !important;
+        box-shadow: none !important;
+    }
+}

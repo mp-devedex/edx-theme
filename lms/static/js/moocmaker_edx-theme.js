@@ -62,4 +62,58 @@ $(document).ready(function(){
 
   });
 
+  $('#courses-carousel .item').each(function(){
+    var items_delimiter=4; // default 4 - will keep 5 or 6 items
+    var width = $(window).width();
+
+    if ( width < 528 ) {
+      items_delimiter = 999;
+    } else if ( width < 768 ) {
+      items_delimiter = 0;
+    } else if ( width < 1024 ) {
+      items_delimiter = 1;
+    } else if ( width < 1280 ) {
+      items_delimiter = 2;
+    } else if ( width > 1280 ) {
+      items_delimiter = 3;
+    }
+
+    if ( items_delimiter == 999 ) {
+      if ($(this).siblings(':last')) {
+        $(this).siblings(':first').find('.item-content:first-child').clone().appendTo($(this));
+      } else {
+          next.find('.item-content:first-child').clone().appendTo($(this));   
+      }
+    } else {
+      var next = $(this).next();
+      if (!next.length) {
+        next = $(this).siblings(':first');
+      }
+      next.children(':first-child').clone().appendTo($(this));
+      
+      if (items_delimiter != 0) {
+
+        for (var i=0;i<items_delimiter;i++) {
+          next=next.next();
+          if (!next.length) {
+            next = $(this).siblings(':first');
+          }
+          
+          next.children(':first-child').clone().appendTo($(this));
+        }
+      }
+    }
+  });
+
+  // display course info in mobile devices 
+  $('.course-info ').click(function() {
+    description_visibility = $(this).parent().children('.thumbnail').children('.description').css('visibility');
+    console.log(description_visibility);
+    if ( description_visibility != "visible" ) {
+      $(this).parent().children('.thumbnail').children('.description').css({"visibility": "visible", "opacity": 1, "top": 0});
+    } else {
+      $(this).parent().children('.thumbnail').children('.description').css("visibility", "hidden").animate({"top": "100%"}, 1000);
+    }
+  })
+
 });

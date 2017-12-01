@@ -24,6 +24,9 @@
 // -- MIXINS -- //
 @import 'helpers/mixins';
 
+// -- CLASSES -- //
+@import 'helpers/classes';
+
 // -- COMPONENTS -- //
 @import 'components/buttons';
 @import 'components/carousel';
@@ -32,6 +35,7 @@
 // -- LAYOUT -- //
 @import 'layout/courses';
 @import 'layout/footer';
+@import 'layout/more_courses';
 
 //-----------------
 //  Color variables (from Stanford palette unless noted)
@@ -256,8 +260,9 @@ body, html {
 // Footer Styling
 //-----------------
 .wrapper-footer {
-    box-shadow: none !important;
-    padding: 0;
+    margin-top: 0;
+    border-top: 0;
+    padding: 50px 0 0 0;
     
     footer {
         margin: 0 auto;
