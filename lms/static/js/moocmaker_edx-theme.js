@@ -10,15 +10,17 @@ $(document).ready(function(){
 
 	// Detect URL param
 	urlContains = function(name){
-    if ( (window.location.href) == name ) {
-      return true;
-    } else {
-      return false;
-    }
+  	if ( (window.location.href).includes(name) ) {
+  		return true;
+		} else {
+  		return false;
+ 		}
 	} 
 
-	if ( urlContains('http://campus.mooc-maker.org/') ) {
-    window.location.replace('http://campus.moocmaker.org/');
+	if ( urlContains('http://campus.mooc-maker.org') ) {
+			var new_url = window.location.href;
+			var new_url = new_url.replace('http://campus.mooc-maker.org', 'http://campus.moocmaker.org');
+    	window.location.replace(new_url);
 	}
 
   var elementos = document.getElementsByClassName('description');
