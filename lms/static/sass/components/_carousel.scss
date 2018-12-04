@@ -1,5 +1,9 @@
 .carousel-inner > .item {
     max-height: 410px !important;
+
+    img {
+        width: 100%;
+    }
 }
 
 .carousel-caption {
