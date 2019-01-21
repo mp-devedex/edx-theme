@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  // Non MOOC Maker Courses
+  var externalCourses = ["course-v1:ProyectoDiego+PD01+2019_T1", "course-v1:ProyectoDiego+PD02+2019_T1"]
 
   // Trick for .includes working on IE
   if (!String.prototype.includes) {
@@ -22,6 +24,17 @@ $(document).ready(function(){
 			var new_url = new_url.replace('http://campus.mooc-maker.org', 'http://campus.moocmaker.org');
     	window.location.replace(new_url);
 	}
+
+  // Hide Partners Area for courses external to MOOC Maker
+  function getCourseId(url) {
+    courseId = url.substring(url.indexOf("course-v1"));
+    courseId = courseId.substring(0, courseId.indexOf("/"));
+    return courseId;
+  }
+
+  if (externalCourses.includes(getCourseId(window.location.href))) {
+    $("#partners").css("display", "none");
+  }
 
   var elementos = document.getElementsByClassName('description');
   var texto = "";

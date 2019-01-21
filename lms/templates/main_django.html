@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% load sekizai_tags i18n microsite pipeline optional_include %}
 {% load url from future %}
+{% load static %}
+
 <html lang="{{LANGUAGE_CODE}}">
 <head>
   <meta charset="UTF-8">
@@ -12,7 +14,7 @@
   <!-- BOOTSTRAP JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!-- OWN JS -->
-  <script src="${static.url('js/moocmaker_edx-theme.js')}"></script>
+  <script src="{% static "js/moocmaker_edx-theme.js" %}"></script>
 
   <!-- BOOTSTRAP CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
