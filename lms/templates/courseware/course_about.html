@@ -277,14 +277,22 @@ from openedx.core.lib.courses import course_image_url
         <ol class="important-dates">
           <li class="important-dates-item"><i class="icon fa fa-info-circle"></i><p class="important-dates-item-title">${_("Course Number")}</p><span class="important-dates-item-text course-number">${course.display_number_with_default | h}</span></li>
           % if not course.start_date_is_still_default:
-            <li class="important-dates-item"><i class="icon fa fa-calendar"></i><p class="important-dates-item-title">${_("Classes Start")}</p><span class="important-dates-item-text start-date">${course.start_datetime_text()}</span></li>
+            % if course.id.to_deprecated_string() in custom_courses:
+                <li class="important-dates-item"><i class="icon fa fa-calendar"></i><p class="important-dates-item-title">${_("Course Opening")}</p><span class="important-dates-item-text start-date">${course.start_datetime_text()}</span></li>
+            % else:
+                <li class="important-dates-item"><i class="icon fa fa-calendar"></i><p class="important-dates-item-title">${_("Classes Start")}</p><span class="important-dates-item-text start-date">${course.start_datetime_text()}</span></li>
+            % endif
           % endif
             ## We plan to ditch end_date (which is not stored in course metadata),
             ## but for backwards compatibility, show about/end_date blob if it exists.
             % if get_course_about_section(request, course, "end_date") or course.end:
             <li class="important-dates-item">
                 <i class="icon fa fa-calendar"></i>
-                <p class="important-dates-item-title">${_("Classes End")}</p>
+                % if course.id.to_deprecated_string() in custom_courses:
+                    <p class="important-dates-item-title">${_("Course Closure")}</p>
+                % else:
+                    <p class="important-dates-item-title">${_("Classes End")}</p>
+                % endif
                 <span class="important-dates-item-text final-date">
                     % if get_course_about_section(request, course, "end_date"):
                         ${get_course_about_section(request, course, "end_date")}
