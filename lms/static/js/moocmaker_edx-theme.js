@@ -36,6 +36,11 @@ $(document).ready(function(){
     $("#partners").css("display", "none");
   }
 
+  if ($(".hide-partners").length) {
+    $("#partners").css("display", "none");
+  }
+
+  // Limit course description length
   var elementos = document.getElementsByClassName('description');
   var texto = "";
   var texto2 = "";
